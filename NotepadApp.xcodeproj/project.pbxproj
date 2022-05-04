@@ -14,6 +14,7 @@
 		B1131B6F2822DCA300738ED5 /* NotepadApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1131B6D2822DCA300738ED5 /* NotepadApp.xcdatamodeld */; };
 		B1131B712822DCA300738ED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1131B702822DCA300738ED5 /* Assets.xcassets */; };
 		B1131B742822DCA300738ED5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1131B722822DCA300738ED5 /* LaunchScreen.storyboard */; };
+		B1131B7C2822DF0400738ED5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1131B7B2822DF0400738ED5 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B1131B702822DCA300738ED5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1131B732822DCA300738ED5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1131B752822DCA300738ED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1131B7B2822DF0400738ED5 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				B1131B642822DCA300738ED5 /* AppDelegate.swift */,
 				B1131B662822DCA300738ED5 /* SceneDelegate.swift */,
 				B1131B682822DCA300738ED5 /* ViewController.swift */,
+				B1131B7B2822DF0400738ED5 /* DetailsViewController.swift */,
 				B1131B6A2822DCA300738ED5 /* Main.storyboard */,
 				B1131B702822DCA300738ED5 /* Assets.xcassets */,
 				B1131B722822DCA300738ED5 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				B1131B652822DCA300738ED5 /* AppDelegate.swift in Sources */,
 				B1131B672822DCA300738ED5 /* SceneDelegate.swift in Sources */,
 				B1131B6F2822DCA300738ED5 /* NotepadApp.xcdatamodeld in Sources */,
+				B1131B7C2822DF0400738ED5 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
