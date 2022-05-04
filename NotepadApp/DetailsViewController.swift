@@ -25,6 +25,9 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         loadLogo()
+        
+        
+       
 
         if tappedTitle != "" {
             

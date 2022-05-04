@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         getData()
         loadLogo()
         
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name(rawValue: "dataEntered"), object: nil)
@@ -93,7 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
+        cell.textLabel?.font = UIFont(name: "Chalkduster", size: CGFloat.pi*6)
         cell.textLabel?.text = titleArr[indexPath.row]
         
         return cell
@@ -116,6 +117,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             destinationVC.tappedTitle = selectedTitle
             destinationVC.tappedID = selectedID
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Notepad")
+            
+            let uuidString = idArr[indexPath.row].uuidString
+            
+            fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        if let id = result.value(forKey: "id") {
+                            if (id as! UUID) == idArr[indexPath.row] {
+                                
+                                context.delete(result)
+                                titleArr.remove(at: indexPath.row)
+                                idArr.remove(at: indexPath.row)
+                                
+                                self.tableView.reloadData()
+                                
+                                do{
+                                    try context.save()
+                                } catch {
+                                    print("DeletionError")
+                                }
+                                break
+                            }
+                        }
+                         
+                    }
+                }
+                
+            }catch{
+                
+            }
         }
     }
     
